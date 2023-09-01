@@ -1,0 +1,52 @@
+server:
+  port: 8090
+
+spring:
+  profiles:
+    active: dev
+    include: website,alipay,oss
+
+jwt:
+  secret: novel!#20191230
+  expiration: 604800
+
+#缓存管理密码
+cache:
+  manager:
+    password: novel@2020117
+
+
+# 防止XSS攻击
+xss:
+  # 过滤开关
+  enabled: true
+  # 排除链接（多个用逗号分隔）
+  excludes: /system/notice/*
+  # 匹配链接 （多个用逗号分隔）
+  urlPatterns: /book/addBookComment,/user/addFeedBack,/author/addBook,/author/addBookContent,/author/updateBookContent,/author/register.html
+
+
+author:
+  income:
+    #税率(扣税后所得比率)
+    tax-rate: 0.9
+    #分佣比例
+    share-proportion: 0.7
+    #兑换比率(人民币)
+    exchange-proportion: 0.01
+
+#小说章节定价规则
+book:
+  price:
+    #字数
+    word-count: 1000
+    #价值(书币)
+    value: 5
+
+
+
+
+
+
+
+

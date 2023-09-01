@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.java2nb</groupId>
+    <artifactId>novel</artifactId>
+    <version>4.1.0</version>
+    <modules>
+        <module>novel-common</module>
+        <module>novel-front</module>
+        <module>novel-crawl</module>
+        <module>novel-admin</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>novel</name>
+    <description>爱看小说父工程</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.18.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.test.skip>true</maven.test.skip>
+        <mysql.version>8.0.29</mysql.version>
+        <mybatis.version>2.1.4</mybatis.version>
+        <mybatis-generator.version>1.4.0</mybatis-generator.version>
+        <mybatis-dynamic-sql.version>1.1.4</mybatis-dynamic-sql.version>
+        <pagehelper.version>1.4.6</pagehelper.version>
+        <orderbyhelper.version>1.0.2</orderbyhelper.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <jest.version>6.3.1</jest.version>
+        <redis.version>1.4.1.RELEASE</redis.version>
+        <redisson.version>3.12.5</redisson.version>
+        <sharding.jdbc.version>3.0.0</sharding.jdbc.version>
+        <aliyun-sdk-oss.version>3.16.3</aliyun-sdk-oss.version>
+        <commons-fileupload.version>1.5</commons-fileupload.version>
+        <alipay-sdk-java.version>4.35.139.ALL</alipay-sdk-java.version>
+        <xxyopen.version>1.0.0</xxyopen.version>
+        <jackson.version>2.15.1</jackson.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.java2nb</groupId>
+                <artifactId>novel-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- 如果maven无法解析io.github.xxyopen的依赖，需要检查镜像mirror的配置 -->
+    <!-- mirror可以拦截对远程仓库的请求 , 改变对目标仓库的下载地址-->
+    <!-- 如果maven setting.xml中配置了镜像 , 而且镜像配置的规则中匹配到目标仓库时,
+    maven认为目标仓库被镜像了, 不会再去被镜像仓库下载依赖jar包, 而是直接去镜像仓库下载-->
+    <!-- <mirrorOf></mirrorOf>里配置需要拦截的仓库id。-->
+    <!-- 如果填*，就会拦截所有仓库。-->
+    <!-- maven阿里的镜像使用的默认mirrorOf规则=*, 所有的仓库都被镜像，需要改成 *,!oss -->
+    <!-- 另外需要注意的是，由于镜像仓库完全屏蔽了被镜像仓库，当镜像仓库不稳定或者停止服务的时候，
+    Maven仍将无法访问被镜像仓库，因而将无法下载依赖。-->
+    <repositories>
+        <repository>
+            <id>ali</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>ali-plugin</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

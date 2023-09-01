@@ -1,0 +1,17 @@
+alipay:
+  #请填写您的AppId，例如：2019091767145019
+  app-id: 9021000123609241
+  #请填写您的应用私钥，例如：MIIEvQIBADANB
+  merchant-private-key: MIIEuwIBADANB
+  #支付宝公钥字符串
+  public-key: MIIBIjANBgkqhki
+  #填写您的支付类接口异步通知接收服务地址，例如：https://www:test:com/callback:
+  notify-url:  https://a1c0-59-52-37-50.ngrok-free.app/pay/aliPay/notify
+  #支付成功跳转页面
+  return-url: http://127.0.0.1:8090/user/userinfo.html
+  #签名方式
+  sign-type: RSA2
+  #编码
+  charset: utf-8
+  #支付宝网关
+  gateway-url: https://openapi-sandbox.dl.alipaydev.com/gateway.do
